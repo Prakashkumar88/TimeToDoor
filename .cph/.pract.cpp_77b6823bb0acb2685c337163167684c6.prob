@@ -1,0 +1,1 @@
+{"name":"Local: pract","url":"/home/prakash-kumar/Machine Learning/TimeToDoor/pract.cpp","tests":[{"id":1754208375983,"input":"2\n3 7\n4","output":""},{"id":1754208682908,"input":"2\n4 2\n6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/prakash-kumar/Machine Learning/TimeToDoor/pract.cpp","group":"local","local":true}
