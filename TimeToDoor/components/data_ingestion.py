@@ -7,22 +7,26 @@ from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 from TimeToDoor.logger import logging
 from TimeToDoor.exceptions import CustomException
+from TimeToDoor.components.data_transformation import DataTransformation, DataTransformationConfig
 
 @dataclass
 class DataIngestionConfig:
     train_data_path:str = TRAIN_FILE_PATH
     test_data_path:str = TEST_FILE_PATH
     raw_data_path:str = RAW_FILE_PATH
-    
+
+
 class DataIngestion:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
-        
-    def initiate_data_ingestion(self):
+
+
+    def iniitiate_data_ingestion(self):
         try:
             df = pd.read_csv(DATASET_PATH)
-            
-            #df = pd.read_csv(os.path.join('C:\Users\Prakash\Desktop\project_template\New-Machine-Learning-Modular-Coding-project\Data\finalTrain.csv'))
+
+            #df = pd.read_csv(os.path.join('C:\Users\shiva\Desktop\project_template\New-Machine-Learning-Modular-Coding-project\Data\finalTrain.csv'))
+
             os.makedirs(os.path.dirname(self.data_ingestion_config.raw_data_path), exist_ok=True)
 
             df.to_csv(self.data_ingestion_config.raw_data_path, index = False)
@@ -44,9 +48,10 @@ class DataIngestion:
 
         except Exception as e:
             raise CustomException( e, sys)
-
 # Data Ingestion
 
 if __name__ == "__main__":
-   obj = DataIngestion()
-   train_data, test_data = obj.initiate_data_ingestion()
+    obj = DataIngestion()
+    train_data_path,test_data_path=obj.iniitiate_data_ingestion()
+    data_transformation = DataTransformation()
+    train_arr,test_arr,_ = data_transformation.inititate_data_transformation(train_data_path,test_data_path)
