@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Single Prediction Form</h2>
+<form method="POST" class="form-container">
+    <label>Delivery Person Age:</label>
+    <input type="number" name="Delivery_person_Age" required>
+
+    <label>Delivery Person Ratings:</label>
+    <input type="number" step="0.1" name="Delivery_person_Ratings" required>
+
+    <label>Weather Conditions:</label>
+    <select name="Weather_conditions" required>
+        <option>Sunny</option>
+        <option>Stormy</option>
+        <option>Foggy</option>
+        <option>Windy</option>
+    </select>
+
+    <label>Road Traffic Density:</label>
+    <select name="Road_traffic_density" required>
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+    </select>
+
+    <label>Vehicle Condition:</label>
+    <input type="number" name="Vehicle_condition" required>
+
+    <label>Type of Order:</label>
+    <input type="text" name="Type_of_order" required>
+
+    <label>Type of Vehicle:</label>
+    <input type="text" name="Type_of_vehicle" required>
+
+    <label>Multiple Deliveries:</label>
+    <input type="number" name="multiple_deliveries" required>
+
+    <label>Distance (km):</label>
+    <input type="number" step="0.1" name="distance" required>
+
+    <label>Festival:</label>
+    <select name="Festival" required>
+        <option>Yes</option>
+        <option>No</option>
+    </select>
+
+    <label>City:</label>
+    <input type="text" name="City" required>
+
+    <button type="submit" class="btn">Predict</button>
+</form>
+
+{% if final_result is defined %}
+<div class="result">
+    <h3>Predicted Delivery Time: {{ final_result }} minutes</h3>
+</div>
+{% endif %}
+{% endblock %}
