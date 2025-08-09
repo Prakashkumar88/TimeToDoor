@@ -33,3 +33,14 @@ def evaluate_model(X_train, y_train, X_test, y_test, models):
         
     except Exception as e:
         raise CustomException(e, sys)
+    
+
+def load_model(file_path):
+    try:
+        with open(file_path, 'rb') as file:
+            model = pickle.load(file)
+        return model
+    
+    except Exception as e:
+        logging.info("Model file not found, loading an object")
+        raise CustomException(e, sys)
