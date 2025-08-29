@@ -1,58 +1,134 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h2>Single Prediction Form</h2>
 <form method="POST" class="form-container">
-    <label>Delivery Person Age:</label>
-    <input type="number" name="Delivery_person_Age" required>
+  <label>Delivery Person Age:</label>
+  <input type="number" name="Delivery_person_Age" required />
 
-    <label>Delivery Person Ratings:</label>
-    <input type="number" step="0.1" name="Delivery_person_Ratings" required>
+  <label>Delivery Person Ratings:</label>
+  <input type="number" step="0.1" name="Delivery_person_Ratings" required />
 
-    <label>Weather Conditions:</label>
-    <select name="Weather_conditions" required>
-        <option>Sunny</option>
-        <option>Stormy</option>
-        <option>Foggy</option>
-        <option>Windy</option>
-    </select>
+  <label>Weather Conditions:</label>
+  <select name="Weather_conditions" required>
+    <option>Sunny</option>
+    <option>Cloudy</option>
+    <option>Windy</option>
+    <option>Fog</option>
+    <option>Stormy</option>
+    <option>Sandstorms</option>
+  </select>
 
-    <label>Road Traffic Density:</label>
-    <select name="Road_traffic_density" required>
-        <option>Low</option>
-        <option>Medium</option>
-        <option>High</option>
-    </select>
+  <label>Road Traffic Density:</label>
+  <select name="Road_traffic_density" required>
+    <option>Low</option>
+    <option>Medium</option>
+    <option>High</option>
+    <option>Jam</option>
+  </select>
 
-    <label>Vehicle Condition:</label>
-    <input type="number" name="Vehicle_condition" required>
+  <label>Vehicle Condition:</label>
+  <select name="Vehicle_condition" required>
+    <option value="0">Good</option>
+    <option value="1">Average</option>
+    <option value="2">Poor</option>
+  </select>
 
-    <label>Type of Order:</label>
-    <input type="text" name="Type_of_order" required>
+  <label>Type of Order:</label>
+  <select name="Type_of_order" required>
+    <option>Meal</option>
+    <option>Snack</option>
+    <option>Drinks</option>
+    <option>Buffet</option>
+  </select>
 
-    <label>Type of Vehicle:</label>
-    <input type="text" name="Type_of_vehicle" required>
+  <label>Type of Vehicle:</label>
+  <select name="Type_of_vehicle" required>
+    <option value="motorcycle">Motorcycle</option>
+    <option value="scooter">Scooter</option>
+    <option value="electric_scooter">Electric Scooter</option>
+  </select>
 
-    <label>Multiple Deliveries:</label>
-    <input type="number" name="multiple_deliveries" required>
+  <label>Multiple Deliveries:</label>
+  <input type="number" name="multiple_deliveries" required />
 
-    <label>Distance (km):</label>
-    <input type="number" step="0.1" name="distance" required>
+  <label>Festival:</label>
+  <select name="Festival" required>
+    <option>No</option>
+    <option>Yes</option>
+  </select>
 
-    <label>Festival:</label>
-    <select name="Festival" required>
-        <option>Yes</option>
-        <option>No</option>
-    </select>
+  <label>City:</label>
+  <select name="City" required>
+    <option>Metropolitian</option>
+    <option>Urban</option>
+    <option>Semi-Urban</option>
+  </select>
 
-    <label>City:</label>
-    <input type="text" name="City" required>
+  <label>Time of Order (24Hr):</label>
+  <div style="display: flex; gap: 10px">
+    <input
+      type="number"
+      id="order_hour"
+      name="order_hour"
+      min="0"
+      max="23"
+      placeholder="HH"
+      required
+    />
+    <input
+      type="number"
+      id="order_minute"
+      name="order_minute"
+      min="0"
+      max="59"
+      placeholder="MM"
+      required
+    />
+  </div>
+  <input type="hidden" id="TimeOrder_Hour" name="TimeOrder_Hour" />
 
-    <button type="submit" class="btn">Predict</button>
+  <label>Delivery City:</label>
+  <select name="Delivery_city" required>
+    <option>DEH</option>
+    <option>KOC</option>
+    <option>PUNE</option>
+    <option>LUDH</option>
+    <option>KNP</option>
+    <option>MUM</option>
+    <option>MYS</option>
+    <option>HYD</option>
+    <option>KOL</option>
+    <option>RANCHI</option>
+    <option>COIMB</option>
+    <option>CHEN</option>
+    <option>JAP</option>
+    <option>SUR</option>
+    <option>BANG</option>
+    <option>GOA</option>
+    <option>AURG</option>
+    <option>AGR</option>
+    <option>VAD</option>
+    <option>ALH</option>
+    <option>BHP</option>
+    <option>INDO</option>
+  </select>
+
+  <label>Distance (km):</label>
+  <input type="number" step="0.1" name="distance" required />
+
+  <button type="submit" class="btn">Predict</button>
 </form>
 
 {% if final_result is defined %}
 <div class="result">
-    <h3>Predicted Delivery Time: {{ final_result }} minutes</h3>
+  <h3>Predicted Delivery Time: {{ final_result }} minutes</h3>
 </div>
 {% endif %}
+
+<!-- Script should stay inside the template -->
+<script>
+  document.querySelector("form").addEventListener("submit", function () {
+    const hour = document.getElementById("order_hour").value;
+    document.getElementById("TimeOrder_Hour").value = hour; // only send hour
+  });
+</script>
 {% endblock %}

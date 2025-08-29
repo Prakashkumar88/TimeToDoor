@@ -41,20 +41,23 @@ def predict_datapoint():
                 Type_of_order=request.form.get('Type_of_order'),
                 Type_of_vehicle=request.form.get('Type_of_vehicle'),
                 multiple_deliveries=int(request.form.get('multiple_deliveries')),
-                distance=float(request.form.get('distance')),  
-                Festival=request.form.get('Festival'),        
-                City=request.form.get('City')
+                Festival=request.form.get('Festival'),
+                City=request.form.get('City'),
+                TimeOrder_Hour=int(request.form.get('TimeOrder_Hour')),  
+                Delivery_city=request.form.get('Delivery_city'),         
+                distance=float(request.form.get('distance'))             
             )
 
             final_new_data = data.get_data_as_dataframe()
             prediction_pipeline = PredictionPipeline()
             pred = prediction_pipeline.predict(final_new_data)
 
-            result = int(pred[0])
+            result = round(float(pred[0]), 2) 
             return render_template('form.html', final_result=result)
+
         except Exception as e:
             logging.error(f"Error during prediction: {e}")
-            return render_template('form.html', final_result="Error occurred")
+            return render_template('form.html', final_result=f"Error occurred: {str(e)}")
 
 @app.route('/batch_prediction', methods=['GET', 'POST'])
 def perform_batch_prediction():
@@ -102,4 +105,4 @@ def train():
             return render_template('index.html', message="Error during training")
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True, port=8888)  
+    app.run(host='0.0.0.0', debug=True, port=5000)  

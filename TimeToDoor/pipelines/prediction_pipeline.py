@@ -30,51 +30,49 @@ class PredictionPipeline():
 
 class CustomData:
     def __init__(self,
-                 Delivery_person_Age: int,
-                 Delivery_person_Ratings: float,
-                 Weather_conditions: str,
-                 Road_traffic_density: str,
-                 Type_of_vehicle: str,
-                 Vehicle_condition: str,
-                 multiple_deliveries: int,
-                 distance: float,
-                 Type_of_order: str,
-                 Festival: str,
-                 City: str):
-        
+        Delivery_person_Age: int,
+        Delivery_person_Ratings: float,
+        Weather_conditions: str,
+        Road_traffic_density: str,
+        Vehicle_condition: int,
+        Type_of_order: str,
+        Type_of_vehicle: str,
+        multiple_deliveries: int,
+        Festival: str,
+        City: str,
+        TimeOrder_Hour: int,
+        Delivery_city: str,
+        distance: float
+    ):
         self.Delivery_person_Age = Delivery_person_Age
         self.Delivery_person_Ratings = Delivery_person_Ratings
         self.Weather_conditions = Weather_conditions
         self.Road_traffic_density = Road_traffic_density
-        self.Type_of_vehicle = Type_of_vehicle
         self.Vehicle_condition = Vehicle_condition
-        self.multiple_deliveries = multiple_deliveries
-        self.distance = distance
         self.Type_of_order = Type_of_order
+        self.Type_of_vehicle = Type_of_vehicle
+        self.multiple_deliveries = multiple_deliveries
         self.Festival = Festival
         self.City = City
-        
+        self.TimeOrder_Hour = TimeOrder_Hour
+        self.Delivery_city = Delivery_city
+        self.distance = distance
+
     def get_data_as_dataframe(self):
-        try:
-            custom_data_input_dict = {
-                'Delivery_person_Age': [self.Delivery_person_Age],
-                'Delivery_person_Ratings': [self.Delivery_person_Ratings],
-                'Weather_conditions': [self.Weather_conditions],
-                'Road_traffic_density': [self.Road_traffic_density],
-                'Type_of_vehicle': [self.Type_of_vehicle],
-                'Vehicle_condition': [self.Vehicle_condition],
-                'multiple_deliveries': [self.multiple_deliveries],
-                'distance': [self.distance],
-                'Type_of_order': [self.Type_of_order],
-                'Festival': [self.Festival],
-                'City': [self.City]
-            }
-            
-            df = pd.DataFrame(custom_data_input_dict)
-            logging.info("Custom data converted to DataFrame")
-            return df
-        
-        except Exception as e:
-            logging.info("Error occurred while converting custom data to DataFrame")
-            raise CustomException(e, sys)
-        
+        import pandas as pd
+        custom_data_dict = {
+            "Delivery_person_Age": [self.Delivery_person_Age],
+            "Delivery_person_Ratings": [self.Delivery_person_Ratings],
+            "Weather_conditions": [self.Weather_conditions],
+            "Road_traffic_density": [self.Road_traffic_density],
+            "Vehicle_condition": [self.Vehicle_condition],
+            "Type_of_order": [self.Type_of_order],
+            "Type_of_vehicle": [self.Type_of_vehicle],
+            "multiple_deliveries": [self.multiple_deliveries],
+            "Festival": [self.Festival],
+            "City": [self.City],
+            "TimeOrder_Hour": [self.TimeOrder_Hour],
+            "Delivery_city": [self.Delivery_city],
+            "distance": [self.distance]
+        }
+        return pd.DataFrame(custom_data_dict)
