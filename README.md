@@ -1,4 +1,3 @@
-````markdown
 # TimeToDoor 🚚
 
 **TimeToDoor** is a machine learning-powered delivery time prediction application. It predicts the expected delivery time based on various features like delivery person details, weather, traffic, order type, vehicle, and city information. The app also supports batch predictions via CSV files.
@@ -29,7 +28,6 @@
 ```bash
 git clone <your-repo-url>
 cd TimeToDoor
-````
 
 2. **Activate your Conda environment**
 
