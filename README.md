@@ -26,11 +26,11 @@
 1. **Clone the repository**
 
 ```bash
-git clone <your-repo-url>
+git clone [<your-repo-url>](https://github.com/Prakashkumar88/TimeToDoor.git)
 cd TimeToDoor
+```
 
 2. **Activate your Conda environment**
-
 ```bash
 conda create -n timetodoor python=3.11
 conda activate timetodoor
@@ -68,7 +68,6 @@ TimeToDoor/
 │   ├── utils.py           # Helper functions
 │   ├── logger.py          # Logging setup
 │   └── constants.py       # Constants like file paths
-├── batch_prediction/      # Batch CSV prediction
 └── requirements.txt       # Python dependencies
 ```
 
@@ -130,7 +129,3 @@ python -m TimeToDoor.pipelines.training_pipeline
 ## License
 
 MIT License © 2025 Prakash Kumar
-
-```
-This version fixes all code block issues, aligns bullet points, and ensures proper Markdown rendering.
-```
