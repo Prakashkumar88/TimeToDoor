@@ -1,14 +1,14 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Train Model</h2>
-<form method="POST" class="form-container">
+{% extends "base.html" %} {% block content %}
+<div class="form-wrapper">
+  <h2>Train Model</h2>
+  <form method="POST" class="form-container">
     <p>Click the button below to train the model with the latest dataset.</p>
     <button type="submit" class="btn">Train Model</button>
-</form>
+  </form>
 
-{% if message %}
-<div class="result">
+  {% if message %}
+  <div class="result">
     <p>{{ message }}</p>
+  </div>
 </div>
-{% endif %}
-{% endblock %}
+{% endif %} {% endblock %}

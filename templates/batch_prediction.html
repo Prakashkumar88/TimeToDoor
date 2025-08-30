@@ -1,18 +1,18 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Batch Prediction</h2>
-<form method="POST" enctype="multipart/form-data" class="form-container">
+{% extends "base.html" %} {% block content %}
+<div class="form-wrapper">
+  <h2>Batch Prediction</h2>
+  <form method="POST" enctype="multipart/form-data" class="form-container">
     <label>Upload CSV File:</label>
-    <input type="file" name="csv_file" accept=".csv" required>
+    <input type="file" name="csv_file" accept=".csv" required />
     <button type="submit" class="btn">Run Batch Prediction</button>
-</form>
+  </form>
 
-{% if output %}
-<div class="result">
+  {% if output %}
+  <div class="result">
     <p>{{ output }}</p>
     {% if file_path %}
-        <p>Uploaded File: {{ file_path }}</p>
+    <p>Uploaded File: {{ file_path }}</p>
     {% endif %}
+  </div>
 </div>
-{% endif %}
-{% endblock %}
+{% endif %} {% endblock %}
