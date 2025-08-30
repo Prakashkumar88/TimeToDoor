@@ -59,7 +59,6 @@ class CustomData:
         self.distance = distance
 
     def get_data_as_dataframe(self):
-        import pandas as pd
         custom_data_dict = {
             "Delivery_person_Age": [self.Delivery_person_Age],
             "Delivery_person_Ratings": [self.Delivery_person_Ratings],

@@ -11,7 +11,7 @@ from TimeToDoor.pipelines.prediction_pipeline import CustomData, PredictionPipel
 from TimeToDoor.pipelines.training_pipeline import Train
 from Prediction.batch import batch_prediction  
 from werkzeug.utils import secure_filename
-from flask import Flask, render_template, request  
+from flask import Flask, render_template, request
 
 feature_engeneering_file_path = FEATURE_ENGG_OBJ_PATH
 transformer_file_path = PREPROCESSING_OBJ_FILE
