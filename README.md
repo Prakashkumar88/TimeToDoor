@@ -1,5 +1,3 @@
-Sure! Here’s a complete **README.md** text with everything included, including setup, running, batch prediction, and retraining instructions:
-
 ````markdown
 # TimeToDoor 🚚
 
@@ -27,6 +25,7 @@ Sure! Here’s a complete **README.md** text with everything included, including
 ## Installation & Setup
 
 1. **Clone the repository**
+
 ```bash
 git clone <your-repo-url>
 cd TimeToDoor
@@ -133,3 +132,7 @@ python -m TimeToDoor.pipelines.training_pipeline
 ## License
 
 MIT License © 2025 Prakash Kumar
+
+```
+This version fixes all code block issues, aligns bullet points, and ensures proper Markdown rendering.
+```
