@@ -26,7 +26,7 @@
 1. **Clone the repository**
 
 ```bash
-git clone [<your-repo-url>](https://github.com/Prakashkumar88/TimeToDoor.git)
+git clone https://github.com/Prakashkumar88/TimeToDoor.git
 cd TimeToDoor
 ```
 
